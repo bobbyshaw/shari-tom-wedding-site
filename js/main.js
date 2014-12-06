@@ -10,6 +10,20 @@ var coordinates = {
 
 var map;
 
+var hash = window.location.hash.substr(1);
+
+if (hash.length > 0) {
+    thanks(hash);
+}
+
+function thanks(hash) {
+    var msg = document.getElementById(hash);
+
+    if (typeof(msg) != "undefined") {
+        msg.style.display = "block";
+    }
+}
+
 function initialize() {
 
     map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -39,17 +53,28 @@ function initialize() {
                     infowindow.setContent(place.name);
                     infowindow.open(map, this);
                 });
+
+                google.maps.event.addDomListener(document, 'update-' + place.place_id, function() {
+                    infowindow.setContent(place.name);
+                    infowindow.open(map, marker);
+                });
             }
         });
     }
 }
 
 function updateMap(place) {
+    var event
     if (place == 'reception') {
         map.panTo(new google.maps.LatLng(coordinates.reception[0], coordinates.reception[1]));
+        event = new Event('update-' + places.reception);
+
     } else {
         map.panTo(new google.maps.LatLng(coordinates.ceremony[0], coordinates.ceremony[1]));
+        event = new Event('update-' + places.ceremony);
     }
+
+    document.dispatchEvent(event);
 }
 
 function loadScript() {

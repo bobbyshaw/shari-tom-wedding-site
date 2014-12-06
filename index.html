@@ -12,81 +12,65 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/picturefill.min.js" async></script>
     </head>
     <body>
 
         <div class="header-container">
-            <header>
-                <img src="" alt="Shari and Tom Logo" />
-                <h1>Shari &amp; Tom</h1>
+            <header class="header">
+                <h1>Shari <span>&amp; Tom</span></h1>
                 <p>14th February 2015 at 1:00PM</p>
+                <a href="#event" class="respond">Respond</a>
             </header>
         </div>
 
         <div class="main-container">
-            <div class="main wrapper clearfix">
+            <div class="main">
 
                 <article>
-                    <section class="locations">
-                        <h1>Event Details</h1>
 
-                        <div class="location-map">
-                            <div id="map-canvas" class="map-canvas"></div>
+                    <section class="locations-container">
+                        <div class="locations">
+                            <h1 id="event">Event Details</h1>
+
+                            <div class="location-map">
+                                <div id="map-canvas" class="map-canvas"></div>
+                            </div>
+
+                            <div class="location">
+                                <a href="#" class="location-button" onclick="updateMap('ceremony'); return false;">Ceremony</a>
+                                <address>
+                                    <strong>Saint Swithin's Church</strong><br/>
+                                    The Paragon<br/>
+                                    Bath, BA1 5LY<br/>
+                                    UK
+                                </address>
+                            </div>
+
+                            <div class="location">
+                                <a href="#" class="location-button" onclick="updateMap('reception'); return false;">Reception</a>
+                                <address>
+                                    <strong>Bath Assembly Rooms</strong><br/>
+                                    Bennett Street<br/>
+                                    Bath, BA1 2QH<br/>
+                                    UK
+                                </address>
+                            </div>
+
+                            <p>Dinner and dancing will follow the ceremony.</p>
                         </div>
-
-                        <div class="location">
-                            <h3>
-                                <a href="#" onclick="updateMap('ceremony'); return false;">Ceremony</a>
-                            </h3>
-                            <address>
-                                <strong>Saint Swithin's Church</strong>
-                                The Paragon
-                                Bath, BA1 5LY
-                                UK
-                            </address>
-                        </div>
-
-                        <div class="location">
-                            <h3>
-                                <a href="#" onclick="updateMap('reception'); return false;">Reception</a>
-                            </h3>
-                            <address>
-                                <strong>Bath Assembly Rooms</strong>
-                                Bennett Street
-                                Bath, BA1 2QH
-                                UK
-                            </address>
-                        </div>
-
-                        <p>Dinner and dancing will follow the ceremony.</p>
                     </section>
-                    <section>
+                    <section class="response-form">
+                        <img src="img/shari-and-tom.png" alt="Shari and Tom Logo" class="logo" width="127" height="126"/>
                         <h1>RSVP</h1>
                         <p>By the 15th of January 2015</p>
-                        <script type="text/javascript">var submitted=false;</script>
-                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='http://www.shariandtom.co.uk/index.html#thanks';}"></iframe>
-                        <form action="https://docs.google.com/forms/d/1ikC_zdoXbYa3LodNTAEJkIJFyX9TuHxTui932klZz24/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
-                            <ol role="list" class="ss-question-list" style="padding-left: 0">
-                                <div class="ss-form-question errorbox-good" role="listitem">
-                                    <div dir="ltr" class="ss-item  ss-checkbox">
-                                        <div class="ss-form-entry">
-                                            <label class="ss-q-item-label" for="entry_1490819723">
-                                                <div class="ss-q-title">RSVP</div>
-                                            </label>
 
-                                            <ul class="ss-choices" role="group" aria-label="RSVP">
-                                                <li class="ss-choice-item">
-                                                    <label>
-                                                        <span class="ss-choice-item-control goog-inline-block">
-                                                            <input type="checkbox" name="entry.1994830468" value="Yes, can't wait" id="group_1994830468_1" role="checkbox" class="ss-q-checkbox">
-                                                        </span>
-                                                        <span class="ss-choice-label">Yes, can't wait</span>
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                        <p id="invite-thanks">Thanks for letting us know!</p>
+
+                        <script type="text/javascript">var submittedInvite=false;</script>
+                        <iframe name="hidden_iframe" id="hidden_iframe1" style="display:none;" onload="if(submittedInvite) {window.location='http://www.shariandtom.co.uk/index.html#invite-thanks';}"></iframe>
+                        <form action="https://docs.google.com/forms/d/1ikC_zdoXbYa3LodNTAEJkIJFyX9TuHxTui932klZz24/formResponse" method="POST" id="ss-form1" target="hidden_iframe2" onsubmit="submittedInvite=true;">
+                            <ol role="list" class="ss-question-list" style="padding-left: 0">
                                 <div class="ss-form-question errorbox-good" role="listitem">
                                     <div dir="ltr" class="ss-item  ss-text">
                                         <div class="ss-form-entry">
@@ -101,11 +85,31 @@
                                 <div class="ss-form-question errorbox-good" role="listitem">
                                     <div dir="ltr" class="ss-item  ss-text">
                                         <div class="ss-form-entry">
-                                            <label class="ss-q-item-label" for="entry_1583145297">
-                                                <div class="ss-q-title">Name(s)</div>
-                                            </label>
-
                                             <input type="text" name="entry.1583145297" value="" class="ss-q-short" id="entry_1583145297" dir="auto" aria-label="Name(s)  " title="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ss-form-question errorbox-good" role="listitem">
+                                    <div dir="ltr" class="ss-item  ss-checkbox">
+                                        <div class="ss-form-entry">
+                                            <ul class="ss-choices" role="group" aria-label="RSVP">
+                                                <li class="ss-choice-item">
+                                                    <input type="checkbox" name="entry.1994830468" value="Yes, can't wait" id="group_1994830468_1" role="checkbox" class="ss-q-checkbox">
+                                                    <label class="ss-choice-label" for="group_1994830468_1">Yes, can't wait</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ss-form-question errorbox-good" role="listitem">
+                                    <div dir="ltr" class="ss-item  ss-checkbox">
+                                        <div class="ss-form-entry">
+                                            <ul class="ss-choices" role="group" aria-label="RSVP  ">
+                                                <li class="ss-choice-item">
+                                                    <input type="checkbox" name="entry.1638492540" value="Sad to miss it" id="group_1638492540_1" role="checkbox" class="ss-q-checkbox">
+                                                    <label class="ss-choice-label" for="group_1638492540_1">Sad to miss it</label>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -131,56 +135,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="ss-form-question errorbox-good" role="listitem">
-                                    <div dir="ltr" class="ss-item  ss-checkbox">
-                                        <div class="ss-form-entry">
-                                            <label class="ss-q-item-label" for="entry_586172887">
-                                                <div class="ss-q-title">RSVP</div>
-                                            </label>
-
-                                            <ul class="ss-choices" role="group" aria-label="RSVP  ">
-                                                <li class="ss-choice-item">
-                                                    <label>
-                                                        <span class="ss-choice-item-control goog-inline-block">
-                                                            <input type="checkbox" name="entry.1638492540" value="Sad to miss it" id="group_1638492540_1" role="checkbox" class="ss-q-checkbox">
-                                                        </span>
-                                                        <span class="ss-choice-label">Sad to miss it</span>
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <input type="hidden" name="draftResponse" value="[,,&quot;8238288135590763576&quot;]">
                                 <input type="hidden" name="pageHistory" value="0">
                                 <input type="hidden" name="fbzx" value="8238288135590763576">
 
                                 <div class="ss-item ss-navigate">
-                                    <table id="navigation-table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
-                                                    <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
                                 </div>
                             </ol>
                         </form>
                     </section>
-                    <section>
+                    <section class="song-choice">
+                        <p id="song-request-thanks">Thanks, we'll ask the DJ nicely.</p>
                         <h2>Play this song to get me to dance</h2>
-                        <form action="" method="POST">
-                            <input type="text" name="song" value="" />
+
+                        <script type="text/javascript">var submittedRequest=false;</script>
+                        <iframe name="hidden_iframe2" id="hidden_iframe2" style="display:none;" onload="if(submittedRequest) {window.location='http://www.shariandtom.com/index.html#song-request-thanks';}"></iframe>
+                        <form action="https://docs.google.com/forms/d/1SnR4R3k7_RlxyYimEaMa1M5aYJMH6PLoUZPVNBAC2P4/formResponse" method="POST" id="ss-form" target="hidden_iframe2" onsubmit="submittedRequest=true;">
+                            <input type="text" name="entry.498933260" value="" class="ss-q-short valid" id="entry_498933260" dir="auto" aria-label="Song   " title="" style="background-image: none; background-position: 0% 0%; background-repeat: repeat;">
+
+                            <input type="hidden" name="draftResponse" value="[,,&quot;1063906588795969722&quot;]">
+                            <input type="hidden" name="pageHistory" value="0">
+                            <input type="hidden" name="fbzx" value="1063906588795969722">
+
                             <button>Submit</button>
                         </form>
                     </section>
-                    <section>
+                    <section class="registry">
                         <h2>We are registered at:</h2>
-                        <img class="gift-registry-logo" src="" alt="John Lewis" />
-                        <p>and gifts can be delivered to us</p>
+                        <a href="https://www.johnlewisgiftlist.com/giftint/JSPs/GiftList/BuyGifts/GuestFindAList.jsp">
+                            <img class="gift-registry-logo" src="img/john-lewis.png" alt="John Lewis" width="260" height="67" />
+                        </a>
+                        <p>and gifts can be delivered to us.</p>
                     </section>
                 </article>
             </div> <!-- #main -->
@@ -188,21 +175,27 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <img src="" alt="Tom and Shari laughing in the Royal Victoria Park, Bath.">
-
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    <source srcset="img/tom-and-shari-victoria-park-large.jpg" media="(min-width: 1196px)">
+                    <source srcset="img/tom-and-shari-victoria-park.jpg" media="(min-width: 700px)">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img srcset="img/tom-and-shari-victoria-park-small.jpg" alt="Tom and Shari walking through Royal Victoria Park, Bath">
+                </picture>
                 <dl>
                     <dt>
-                        Our Address
+                        Our<br/>
+                        Address
                     </dt>
                     <dd>
                         <address>
-                            Flat 5
-                            The Coachworks
-                            2 Long Acre
-                            London Road
-                            Bath
-                            BA1 5NL
-                            UK
+                            Flat 5<br/>
+                            The Coachworks<br/>
+                            2 Long Acre<br/>
+                            London Road<br/>
+                            Bath<br/>
+                            BA1 5NL<br/>
+                            UK<br/>
                         </address>
                     </dd>
                 </dl>
