@@ -56,6 +56,11 @@ img {
     max-width: 100%;
 }
 
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
 input[type="text"] {
     border: 0;
     padding: 0.2em;
