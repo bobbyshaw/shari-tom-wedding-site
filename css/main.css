@@ -517,10 +517,18 @@ video {
         display: inline-block;
     }
 
+    .response-form .ss-checkbox {
+        display: inline-block;
+        margin-left: 23%;
+    }
+
+    .response-form .ss-checkbox + .ss-checkbox {
+        margin-left: 5%;
+    }
+
     .response-form .ss-choices label {
-        margin-left: 35%;
         text-align: left;
-        width: 35%;
+        width: 100%;
     }
 
     .response
