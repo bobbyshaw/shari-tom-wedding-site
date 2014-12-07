@@ -36,14 +36,30 @@ textarea {
     color: #222;
 }
 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    background: #000;
+    color: #FFF;
+    font-family: 'AvenirRegular', Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
 img {
     max-width: 100%;
 }
 
 input[type="text"] {
     border: 0;
-    padding: 0.5em;
-    margin-bottom: 1em;
+    padding: 0.2em;
+    margin-bottom: 0.8em;
     width: 100%;
 }
 
@@ -56,7 +72,7 @@ input[type="text"] {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
     position: relative;
-    padding: 4px 0 0 30px;
+    padding: 0.2em 0.2em 0 2.3em;
     cursor: pointer;
 }
 
@@ -65,8 +81,8 @@ input[type="text"] {
 [type="checkbox"]:checked + label:before {
     content: '';
     position: absolute;
-    left:0; top: 2px;
-    width: 20px; height: 20px;
+    left:0; top: 0.1em;
+    width: 1.5em; height: 1.5em;
     border: 1px solid #FFF;
     background: #000;
 }
@@ -75,9 +91,9 @@ input[type="text"] {
 [type="checkbox"]:checked + label:after {
     content: '✔';
     position: absolute;
-    top: 2px; left: 0;
-    font-size: 14.5px;
-    padding-right: 8px;
+    top: 0.08em; left: 0;
+    font-size: 1.1em;
+    padding-right: 0.6em;
     background: #d0b62b;
     color: #d0b62b;
     transition: all .2s;
@@ -118,19 +134,9 @@ button {
     width: 100%;
 }
 
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-html {
-    background: #000;
-    color: #FFF;
-    font-family: 'AvenirRegular', Arial, sans-serif;
-    font-size: 1em;
-    line-height: 1.4;
+label {
+    font-family: 'Didot', 'Times New Roman', serif;
+    font-style: italic;
 }
 
 h1,
@@ -145,6 +151,7 @@ h2 {
 
 h1 {
     font-size: 2em;
+    letter-spacing: 0.1em;
     line-height: 1.1em;
 }
 
@@ -234,7 +241,7 @@ video {
 }
 
 .locations-container {
-    background: url('../img/bath.jpg') no-repeat top left;
+    background: url('../img/bath.jpg') no-repeat top center;
 }
 
 .locations {
@@ -242,10 +249,6 @@ video {
     font-size: 0.8em;
     letter-spacing: 0.8px;
     padding: 1em 1em 6em 1em;
-}
-
-.locations h1 {
-    font-style: normal;
 }
 
 .location {
@@ -308,6 +311,10 @@ video {
 .response-form p {
     text-align: center;
     font-size: 0.8em;
+}
+
+.response-form label[for="entry.1583145297"] {
+    display: none;
 }
 
 .song-choice {
@@ -392,83 +399,130 @@ video {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 650px) {
 
+    html {
+        font-size: 150%;
+    }
 
+    .header-container {
+        padding: 1em;
+    }
+
+    .header h1 {
+        font-size: 5em;
+    }
+
+    .header p {
+        font-size: 1.05em;
+    }
+
+    .header .respond {
+        background: url('../img/arrow.png') top left no-repeat;
+        height: 100px;
+        width: 44px;
+    }
+
+    .logo {
+        width: 127px;
+    }
+
+    .locations-container {
+        background: url('../img/bath.jpg') no-repeat top center;
+    }
+
+    .locations h1 {
+        font-size: 3.5em;
+    }
+
+    .location-map {
+        float: left;
+        padding-bottom: 35%;
+        margin-left: 10%;
+        width: 49%;
+    }
+
+    .location {
+        float: right;
+        margin: 0.4em 0 0 0;
+        padding-left: 5%;
+        width: 39%;
+    }
+
+    .locations p {
+        clear: both;
+        margin-left: 10%;
+        padding: 1em 0;
+    }
+
+    .song-choice,
+    .registry {
+        padding: 4em 1em;
+    }
+
+    .song-choice input[type="text"] {
+        width: 50%;
+    }
+
+    .song-choice button {
+        display: block;
+        margin: 0 auto;
+        width: 20%;
+    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 990px) {
 
-
-}
-
-@media only screen and (min-width: 1140px) {
-
-}
-
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-
-@media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
+    html {
+        font-size: 170%;
     }
 
-    a,
-    a:visited {
-        text-decoration: underline;
+    .locations-container {
+        background: url('../img/bath-large.jpg') no-repeat top center;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
+    .location-map {
+        float: left;
+        padding-bottom: 25%;
+        margin-left: 16%;
+        width: 37%;
     }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
+    .locations p {
+        margin-left: 16%;
     }
 
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
+    .location {
+        width: 45%;
     }
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
+    .response-form input[type="submit"],
+    .response-form input[type="text"] {
+        display: inline-block;
+        width: 30%;
     }
 
-    thead {
-        display: table-header-group;
+    .response-form input[type="submit"] {
+        margin-left: 40.6%;
     }
 
-    tr,
-    img {
-        page-break-inside: avoid;
+    .response-form label {
+        display: inline-block;
+        padding-right: 1em;
+        text-align: right;
+        width: 40%;
     }
 
-    img {
-        max-width: 100% !important;
+    .response-form label[for="entry.1583145297"] {
+        display: inline-block;
     }
 
-    @page {
-        margin: 0.5cm;
+    .response-form .ss-choices label {
+        margin-left: 35%;
+        text-align: left;
+        width: 35%;
     }
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+    .response
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
 }
