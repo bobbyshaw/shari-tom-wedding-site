@@ -77,7 +77,7 @@ input[type="text"] {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
     position: relative;
-    padding: 0.2em 0.2em 0 2.3em;
+    padding: 0.2em 0.2em 0 2em;
     cursor: pointer;
 }
 
@@ -98,7 +98,7 @@ input[type="text"] {
     position: absolute;
     top: 0.08em; left: 0;
     font-size: 1.1em;
-    padding-right: 0.6em;
+    padding-right: 0.43em;
     background: #d0b62b;
     color: #d0b62b;
     transition: all .2s;
@@ -172,6 +172,7 @@ a {
 }
 
 p {
+    letter-spacing: 0.2em;
     text-transform: uppercase;
 }
 
@@ -213,7 +214,9 @@ video {
 }
 
 .header span {
+    padding-right: 0.3em;
     white-space: nowrap;
+    word-spacing: -0.2em;
 }
 
 .header p {
@@ -224,6 +227,7 @@ video {
     -webkit-transform: rotate(-8deg); /* Chrome, Safari, Opera */
     letter-spacing: 0.1em;
     margin-top: 0;
+    padding-right: 0.2em;
     transform: rotate(-8deg);
 }
 
@@ -262,6 +266,7 @@ video {
 
 .location address {
     font-family: 'AvenirItalic', Arial, sans-serif;
+    letter-spacing: 0.11em;
     margin: 1em 0;
 }
 
@@ -290,9 +295,14 @@ video {
     max-width: none;
 }
 
+.locations p {
+    font-size: 0.9em;
+}
+
 .location-button {
     border: 1px solid #FFF;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    letter-spacing: 0.3em;
     padding: 0.7em 0.9em 0.5em;
     text-transform: uppercase;
 }
@@ -309,13 +319,17 @@ video {
 }
 
 .response-form h1 {
-    font-size: 3em;
+    font-size: 5em;
     margin: 0.5em 0 0.2em;
 }
 
 .response-form p {
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.7em;
+}
+
+.response-form label {
+    letter-spacing: 0.1em;
 }
 
 .response-form label[for="entry.1583145297"] {
@@ -407,7 +421,7 @@ video {
 @media only screen and (min-width: 650px) {
 
     html {
-        font-size: 150%;
+        font-size: 130%;
     }
 
     .header-container {
@@ -419,7 +433,8 @@ video {
     }
 
     .header p {
-        font-size: 1.05em;
+        font-size: 0.7em;
+        letter-spacing: 0.37em;
     }
 
     .header .respond {
@@ -434,10 +449,11 @@ video {
 
     .locations-container {
         background: url('../img/bath.jpg') no-repeat top center;
+        font-size: 0.8em;
     }
 
     .locations h1 {
-        font-size: 3.5em;
+        font-size: 4em;
     }
 
     .location-map {
@@ -474,6 +490,44 @@ video {
         margin: 0 auto;
         width: 20%;
     }
+
+    .response-form input[type="submit"],
+    .response-form input[type="text"] {
+        display: inline-block;
+        width: 30%;
+    }
+
+    .response-form input[type="submit"] {
+        margin-left: 40.6%;
+    }
+
+    .response-form label {
+        display: inline-block;
+        padding-right: 1em;
+        text-align: right;
+        width: 40%;
+    }
+
+    .response-form label[for="entry.1583145297"] {
+        display: inline-block;
+    }
+
+    .response-form .response-boolean {
+        text-align: center;
+    }
+
+    .response-form .ss-checkbox {
+        display: inline-block;
+    }
+
+    .response-form .ss-checkbox + .ss-checkbox {
+        margin-left: 5%;
+    }
+
+    .response-form .ss-choices label {
+        text-align: left;
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 990px) {
@@ -500,42 +554,4 @@ video {
     .location {
         width: 45%;
     }
-
-    .response-form input[type="submit"],
-    .response-form input[type="text"] {
-        display: inline-block;
-        width: 30%;
-    }
-
-    .response-form input[type="submit"] {
-        margin-left: 40.6%;
-    }
-
-    .response-form label {
-        display: inline-block;
-        padding-right: 1em;
-        text-align: right;
-        width: 40%;
-    }
-
-    .response-form label[for="entry.1583145297"] {
-        display: inline-block;
-    }
-
-    .response-form .ss-checkbox {
-        display: inline-block;
-        margin-left: 23%;
-    }
-
-    .response-form .ss-checkbox + .ss-checkbox {
-        margin-left: 5%;
-    }
-
-    .response-form .ss-choices label {
-        text-align: left;
-        width: 100%;
-    }
-
-    .response
-
 }

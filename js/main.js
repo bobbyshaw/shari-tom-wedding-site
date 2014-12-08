@@ -28,6 +28,7 @@ function initialize() {
 
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: new google.maps.LatLng(coordinates.ceremony[0], coordinates.ceremony[1]),
+        draggable: false,
         scrollwheel: false,
         zoom: 15
     });
